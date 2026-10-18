@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gửi em 20/10 ♥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Mali:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:#2a040b}
+body{min-height:100vh;font-family:'Mali','Segoe UI',system-ui,sans-serif;color:#ffe9ec;background:radial-gradient(circle at 50% 25%,#7a0f23,#3a0610 60%,#1c0308) fixed;overflow-x:hidden}
+h1,h2,.sign{font-family:'Dancing Script','Brush Script MT',cursive;font-weight:700}
+[hidden]{display:none!important}
+section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top)) 16px 32px;position:relative;z-index:2;animation:fade .8s}
+section.out{opacity:0;transition:opacity .8s}
+@keyframes fade{from{opacity:0}}
+
+/* tim rơi */
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.h,.b{font-style:normal;line-height:1}
+.h{position:absolute;top:-40px;animation:fall linear forwards;will-change:transform}
+@keyframes fall{to{transform:translate(var(--dx),calc(100vh + 80px)) rotate(var(--r))}}
+.b{position:fixed;z-index:5;pointer-events:none;animation:fly 1.2s ease-out forwards}
+@keyframes fly{to{transform:translate(var(--x),var(--y)) scale(.4);opacity:0}}
+
+/* nhạc */
+#mu{position:fixed;top:calc(12px + env(safe-area-inset-top));right:12px;z-index:10;width:44px;height:44px;border:0;border-radius:50%;background:#ffffff2a;color:#fff;font-size:20px;cursor:pointer;opacity:.55}
+#mu.on{opacity:1;animation:sp 5s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* hộp quà */
+#s1 h1{font-size:clamp(2.4rem,9vw,3.6rem);text-align:center;color:#ffd7dd;text-shadow:0 4px 24px #0009}
+#s1 p{opacity:.85;margin-top:6px}
+.gift{position:relative;width:170px;height:170px;margin:48px 0 28px;cursor:pointer;animation:fl 2.4s ease-in-out infinite;outline-offset:12px}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.gift::before{content:"";position:absolute;left:50%;top:45%;width:10px;height:10px;border-radius:50%;box-shadow:0 0 90px 70px #ffb3c0;opacity:0;transition:opacity .8s}
+.gift.open{animation:none}
+.gift.open::before{opacity:.9}
+.box,.lid{position:absolute;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#8f0b22,#d81f3f 48%,#8f0b22);overflow:hidden}
+.box::after,.lid::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:26px;margin-left:-13px;background:#f6d7a7}
+.box{bottom:0;width:146px;height:112px;border-radius:0 0 10px 10px;box-shadow:0 22px 40px #000a}
+.lid{top:22px;width:170px;height:40px;border-radius:8px;box-shadow:0 6px 14px #0006;transition:transform .9s cubic-bezier(.3,1.4,.5,1),opacity .9s .2s}
+.open .lid{transform:translate(-50%,-120px) rotate(-24deg);opacity:0}
+.tip{animation:pu 1.6s ease-in-out infinite}
+@keyframes pu{50%{opacity:.35}}
+
+/* lá thư */
+.paper{width:min(92vw,520px);background:#fff4ea;color:#5b0f1c;border-radius:14px;padding:30px 26px;box-shadow:0 24px 70px #000b;animation:rise 1s both}
+@keyframes rise{from{opacity:0;transform:translateY(70px) scale(.85)}}
+.paper h2{font-size:2.2rem;text-align:center;color:#a50f2d;margin-bottom:16px}
+.paper p{line-height:1.8;margin-bottom:12px}
+.up{animation:up .9s calc(var(--i)*.9s + .6s) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.cnt{margin:20px 0 8px;padding:14px 10px;border-radius:12px;background:#a50f2d;color:#fff4ea;text-align:center;line-height:1.5}
+.cnt b{font-size:2.4rem;font-family:'Dancing Script',cursive}
+.cnt small{display:block;opacity:.85}
+.sign{text-align:right;font-size:1.8rem;color:#a50f2d}
+#nx{display:block;margin:16px auto 0;padding:12px 22px;border:0;border-radius:99px;background:#d81f3f;color:#fff;font:500 1rem 'Mali',sans-serif;cursor:pointer;box-shadow:0 8px 20px #d81f3f66}
+
+/* ảnh */
+#s3{justify-content:flex-start}
+#s3 h2{font-size:clamp(2.2rem,8vw,3rem);margin:20px 0 22px;color:#ffd7dd;text-align:center}
+.grid{columns:2;column-gap:14px;width:min(96vw,900px)}
+@media(min-width:760px){.grid{columns:3}}
+figure{break-inside:avoid;margin:0 0 14px;padding:8px 8px 4px;background:#fff4ea;border-radius:6px;box-shadow:0 8px 22px #000a;opacity:0;transform:rotate(var(--r)) translateY(24px);transition:opacity .7s,transform .7s}
+figure.in{opacity:1;transform:rotate(var(--r))}
+figure img{display:block;width:100%;border-radius:3px;cursor:zoom-in}
+figcaption{padding:8px 2px 4px;color:#5b0f1c;font-size:.85rem;text-align:center}
+.end{margin:18px 0 8px;font-size:1.8rem;font-family:'Dancing Script',cursive;color:#ffd7dd}
+#lb{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:#000d;cursor:zoom-out}
+#lb img{max-width:94vw;max-height:90vh;border-radius:6px}
+</style>
+</head>
+<body>
+<audio id="au" src="nhac.mp3" loop preload="auto"></audio>
+<button id="mu" aria-label="Bật hoặc tắt nhạc">♪</button>
+<div id="hearts"></div>
+
+<section id="s1">
+  <h1>Gửi em iu của anh</h1>
+  <p>Chúc mừng ngày 20/10 ♥</p>
+  <div class="gift" id="gift" role="button" tabindex="0" aria-label="Mở hộp quà">
+    <div class="lid"></div><div class="box"></div>
+  </div>
+  <p class="tip">Chạm vào hộp quà nhé</p>
+</section>
+
+<section id="s2" hidden>
+  <article class="paper">
+    <h2>Happy anniversary 45 tháng</h2>
+    <p class="up" style="--i:0">Happy anniversary 45 tháng của hai đứa mình nhoooo! Chúc em có một ngày kỷ niệm thật vui và thật hạnh phúc nha.</p>
+    <p class="up" style="--i:1">Mình quen nhau cũng gần 4 năm rồi đó nifii. Cảm ơn eiuu đã đồng hành cùng anh suốt quãng thời gian vừa qua. Có những lúc giận dỗi, có những lúc buồn, nhưng em vẫn chọn ở lại, và anh biết ơn điều đó nhiều lắm.</p>
+    <p class="up" style="--i:2">Nhân ngày 20/10, anh chúc em luôn xinh đẹp, thật nhiều năng lượng và lúc nào cũng cười thật tươi nifii.</p>
+    <p class="up" style="--i:3">Thời gian đại học chắc chắn sẽ có rất là nhiều khó khăn, nên eiuu cố lên nhoo. Mệt thì nghỉ một chút, buồn thì kể anh nghe. Có chuyện gì em cũng nhớ là luôn có anh ở đây hỗ trợ em nifii.</p>
+    <p class="up" style="--i:4">Cảm ơn em vì tất cả. Yêu em nhiều lắm!</p>
+    <div class="cnt up" style="--i:5">
+      <small>Mình đã bên nhau từ 20.01.2023</small>
+      <div><b id="d">0</b> ngày</div>
+      <div id="t"></div>
+      <small>khoảng <span id="m">0</span> tháng</small>
+    </div>
+    <p class="sign up" style="--i:6">Anh ♥</p>
+    <button id="nx" class="up" style="--i:7">Xem kỷ niệm của mình</button>
+  </article>
+</section>
+
+<section id="s3" hidden>
+  <h2>Kỷ niệm của mình</h2>
+  <div class="grid" id="g"></div>
+  <p class="end">Yêu em nhiều ♥</p>
+</section>
+
+<div id="lb" hidden></div>
+
+<script>
+const $=s=>document.querySelector(s);
+
+/* ===== SỬA ẢNH Ở ĐÂY: [tên file trong thư mục anh/, chú thích] — đổi thứ tự dòng là đổi thứ tự ảnh ===== */
+const PHOTOS=[
+ ["hsg-hoa","HSG HÓA"],
+ ["nguyen-hien","ng hiền nìii"],
+ ["kekek","kekek quá tìn"],
+ ["di-hoc-hoa","đi học hóaaaaa"],
+ ["tot-nghiep-cap2","tốt nghiệp cấp 2 nìii"],
+ ["cap3","CẤP 3 NÌIII"],
+ ["so-thu","Sở thú nìiii"],
+ ["di-choi","đi chơiiii"],
+ ["mario","hehe mario"],
+ ["dthhh-ca","dthhh cá iii"],
+ ["ptb","ptb đầu tinn"],
+ ["xem-conan","đi xem conan nìii"]
+];
+const START=new Date(2023,0,20); // 20.01.2023
+
+/* ===== tim rơi ===== */
+const hs=$('#hearts'),C=['#ff4d6d','#e5173f','#ff8fa3','#c9184a','#ff6b81'];
+function heart(){
+  const h=document.createElement('i'),d=6+Math.random()*7;
+  h.className='h';h.textContent='♥';
+  h.style.cssText=`left:${Math.random()*100}%;font-size:${12+Math.random()*26}px;color:${C[Math.random()*5|0]};opacity:${.45+Math.random()*.55};animation-duration:${d}s;--dx:${Math.random()*120-60}px;--r:${Math.random()*360-180}deg`;
+  hs.appendChild(h);setTimeout(()=>h.remove(),d*1000);
+}
+for(let i=0;i<14;i++)setTimeout(heart,i*150);
+setInterval(()=>{if(hs.childElementCount<70)heart()},350);
+
+/* ===== nhạc: thử tự phát, nếu trình duyệt chặn thì phát ở lần chạm đầu tiên ===== */
+const au=$('#au'),mu=$('#mu'),ev=['click','touchend','keydown'];
+function go(e){if(e&&e.target.closest&&e.target.closest('#mu'))return;au.play().catch(()=>{})}
+au.onplay=()=>{mu.classList.add('on');ev.forEach(t=>removeEventListener(t,go))};
+au.onpause=()=>mu.classList.remove('on');
+ev.forEach(t=>addEventListener(t,go));
+go();
+mu.onclick=()=>au.paused?au.play():au.pause();
+
+/* ===== chuyển cảnh ===== */
+function show(a,b){a.classList.add('out');setTimeout(()=>{a.hidden=true;b.hidden=false;scrollTo(0,0)},800)}
+const gift=$('#gift');
+function burst(){
+  const r=gift.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+  for(let i=0;i<30;i++){
+    const h=document.createElement('i'),a=Math.random()*6.28,m=90+Math.random()*170;
+    h.className='b';h.textContent='♥';
+    h.style.cssText=`left:${x}px;top:${y}px;color:${C[i%5]};font-size:${14+Math.random()*20}px;--x:${Math.cos(a)*m}px;--y:${Math.sin(a)*m-60}px`;
+    document.body.appendChild(h);setTimeout(()=>h.remove(),1300);
+  }
+}
+gift.onclick=()=>{
+  if(gift.classList.contains('open'))return;
+  gift.classList.add('open');burst();
+  setTimeout(()=>show($('#s1'),$('#s2')),1700);
+};
+gift.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();gift.click()}};
+$('#nx').onclick=()=>show($('#s2'),$('#s3'));
+
+/* ===== đếm ngày ===== */
+const p2=n=>String(n).padStart(2,'0');
+function tick(){
+  const n=new Date();
+  $('#d').textContent=Math.floor((n-START)/864e5).toLocaleString('vi-VN');
+  $('#m').textContent=(n.getFullYear()-2023)*12+n.getMonth()-(n.getDate()<20);
+  $('#t').textContent=`${p2(n.getHours())} giờ ${p2(n.getMinutes())} phút ${p2(n.getSeconds())} giây`;
+}
+tick();setInterval(tick,1000);
+
+/* ===== album ảnh ===== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+const R=[-2,1.5,-1,2];
+PHOTOS.forEach(([f,c],i)=>{
+  const fg=document.createElement('figure');
+  fg.style.setProperty('--r',R[i%4]+'deg');
+  fg.innerHTML=`<img loading="lazy" src="anh/${f}.jpg" alt="${c}"><figcaption>${c}</figcaption>`;
+  $('#g').appendChild(fg);io.observe(fg);
+});
+$('#g').onclick=e=>{if(e.target.tagName=='IMG'){$('#lb').innerHTML=`<img src="${e.target.src}" alt="">`;$('#lb').hidden=false}};
+$('#lb').onclick=()=>$('#lb').hidden=true;
+</script>
+</body>
+</html>
